@@ -35,23 +35,31 @@ let menuItems = [
 */
 
 function hamburger (menuItems) {
+  // const li = document.createElement('li')
   menu = document.createElement('div')
   menu.classList.add('menu')
   const condiments = document.createElement('ul')
 
-  const button = document.querySelector('.menu-button');
+  const button = document.querySelector('.menu-button')
 
   menuItems.forEach(function (x) {
-    items = document.createElement('li')
-    x.condiments.append(x)
+    const li = document.createElement('li')
+    li.append(x)
+
+    condiments.append(li)
   })
 
-    button.addEventListener('click', event => {
+  button.addEventListener('click', event => {
     menu.classList.toggle('menu--open')
-    condiments.classList
-})
+    document.body.append(menu)
+    menu.append(condiments);
+    condiments.classList.toggle('toggle-on')
+    condiments.classList.toggle('menu--open')
+  })
 
   return menu
 }
-(hamburger(menuItems));
-console.log(hamburger());
+hamburger(menuItems)
+console.log(hamburger())
+
+
