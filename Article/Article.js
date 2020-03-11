@@ -112,3 +112,65 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+// Function Start
+function newsFeed(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  // defining the elements
+  let article = document.createElement('div');
+  article.classList.add('article');
+
+  let articleHeader = document.createElement('h2');
+  articleHeader.textContent = title;
+
+  let articleDate = document.createElement('p');
+  articleDate.textContent = date;
+  articleDate.classList.add('date');
+
+  let paragraph1 = document.createElement('p')
+  paragraph1.textContent = firstParagraph;
+
+  let paragraph2 = document.createElement('p')
+  paragraph2.textContent = secondParagraph;
+
+  let paragraph3 = document.createElement('p')
+  paragraph3.textContent = thirdParagraph;
+
+  
+
+  
+  article.addEventListener('click', (event) => {
+    article.classList.toggle('article-open');
+    article.classList.toggle('article-close');
+
+    paragraph1.classList.toggle('toggle-on')
+    paragraph2.classList.toggle('toggle-on')
+    paragraph3.classList.toggle('toggle-on')
+  })
+
+  // setting up the structure
+  article.append(articleHeader);
+  article.append(articleDate);
+  article.append(paragraph1);
+  article.append(paragraph2);
+  article.append(paragraph3);
+  
+
+
+
+  // span.addEventListener('click', (event) =>{
+  //   event.target.
+  // })
+  return article;
+}
+
+
+container = document.createElement('div')
+document.body.append(container)
+//container.classList.add('articles');
+
+data.forEach(item => {
+  container.append(newsFeed(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph))
+})
+
+newsFeed();
+console.log(newsFeed());
